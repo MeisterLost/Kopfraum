@@ -75,6 +75,10 @@ button{cursor:pointer;background:none;border:0;padding:0}
 .steps .step.done .chk{background:var(--ok);border-color:var(--ok)}
 .steps .step .x{color:var(--muted);font-size:18px;padding:0 6px}
 .stat:disabled{cursor:default}
+details.more{border-top:1px solid var(--line);padding-top:10px;margin-bottom:4px}
+details.more summary{cursor:pointer;color:var(--muted);font-size:13px;font-weight:600;margin-bottom:12px}
+.fld .opt{font-weight:400;opacity:.8}
+.seg{flex-wrap:wrap}
 .capture{margin:14px 28px 4px;display:flex;gap:8px;background:var(--panel);border:1.5px solid var(--line);border-radius:var(--radius);padding:6px 6px 6px 14px;box-shadow:var(--shadow);transition:border-color .15s}
 .capture:focus-within{border-color:var(--accent)}
 .capture input{flex:1;border:0;outline:0;background:transparent;min-width:0;padding:8px 0;font-size:16px}
@@ -102,8 +106,9 @@ button{cursor:pointer;background:none;border:0;padding:0}
 .tt{word-wrap:break-word}
 .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
 .chip{font-size:12px;color:var(--muted);background:var(--panel2);border-radius:20px;padding:1px 9px;display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
-.chip.over{color:var(--danger);background:color-mix(in srgb,var(--danger) 12%,transparent)}
+.chip.over{color:var(--warn);background:color-mix(in srgb,var(--warn) 14%,transparent)}
 .chip.today{color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,transparent)}
+.chip.wait{color:var(--accent);background:var(--accent-soft)}
 .chip.p3{color:var(--danger)}.chip.p2{color:var(--warn)}.chip.p1{color:var(--accent)}
 .chip .dot{width:7px;height:7px}
 .sugg{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;align-items:center}
@@ -122,13 +127,13 @@ button{cursor:pointer;background:none;border:0;padding:0}
 .stat:hover{border-color:var(--accent)}
 .stat .n{font-size:26px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
 .stat .l{font-size:12.5px;color:var(--muted)}
-.stat.over .n{color:var(--danger)}
+.stat.over .n{color:var(--warn)}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 14px 10px;border-top:4px solid var(--c);display:flex;flex-direction:column}
 .card .hd{display:flex;align-items:baseline;gap:8px;cursor:pointer}
 .card .hd b{font-size:16px;flex:1}
 .card .hd span{font-size:13px;color:var(--muted)}
-.card .hd .ov{color:var(--danger);font-weight:600}
+.card .hd .ov{color:var(--warn);font-weight:600}
 .subs{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 4px}
 .subs button{font-size:12.5px;background:var(--panel2);border-radius:20px;padding:2px 10px}
 .subs button:hover{background:var(--accent-soft);color:var(--accent)}
@@ -175,6 +180,67 @@ button{cursor:pointer;background:none;border:0;padding:0}
 .toast button{color:var(--accent);font-weight:700}
 .tabs{display:none}
 .scrim{display:none}
+
+
+.fbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:8px}
+.fbar .lbl{font-size:12.5px;color:var(--muted)}
+.fstart{display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap}
+.muted{color:var(--muted)}
+.tcheck{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin-top:12px;font-size:14px}
+.tc-top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.tc-bar{height:8px;background:var(--panel2);border-radius:8px;margin-top:8px;overflow:hidden}
+.tc-bar i{display:block;height:100%;background:var(--ok);border-radius:8px}
+.tcheck.tight .tc-bar i{background:var(--warn)}
+.tc-msg{margin-top:8px;color:var(--muted)}
+.week{display:flex;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px}
+.wd{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;color:var(--muted)}
+.wd b{color:var(--text);font-size:13px;min-height:16px}
+.wb{height:80px;width:100%;max-width:34px;background:var(--panel2);border-radius:8px;display:flex;align-items:flex-end;overflow:hidden}
+.wb i{display:block;width:100%;background:var(--ok);border-radius:8px}
+
+.tgl{display:flex;gap:12px;align-items:flex-start;padding:8px 0;cursor:pointer}
+.tgl input{width:20px;height:20px;margin-top:2px;accent-color:var(--accent);flex:none}
+.tgl small{color:var(--muted)}
+/* Reizarm */
+body.calm .app, body.calm .modal, body.calm .focus, body.calm .tabs, body.calm .toast{filter:saturate(.3)}
+body.calm{--shadow:none}
+body.calm *, body.calm *::before, body.calm *::after{animation:none!important;transition:none!important}
+body.calm .capture{box-shadow:none}
+body.calm .ov-bg{background:rgba(10,12,18,.25)}
+@media (prefers-reduced-motion:reduce){ *, *::before, *::after{animation:none!important;transition:none!important} }
+body.fs-s{zoom:.92} body.fs-l{zoom:1.12} body.fs-xl{zoom:1.25}
+/* Fokus */
+.focus{position:fixed;inset:0;background:var(--bg);z-index:45;display:none;overflow:auto;padding:calc(20px + var(--sat)) 20px calc(30px + var(--sab))}
+.focus.on{display:block}
+.f-x{position:absolute;top:calc(12px + var(--sat));right:16px;font-size:28px;color:var(--muted);width:44px;height:44px;border-radius:12px}
+.f-x:hover{background:var(--panel2)}
+.f-wrap{max-width:560px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px}
+.f-cat{color:var(--muted);font-size:13px;display:flex;align-items:center;gap:7px;margin-top:10px}
+.f-title{font-size:26px;line-height:1.25;margin:0;letter-spacing:-.01em}
+.f-timer{position:relative;width:min(260px,70vw);aspect-ratio:1}
+.f-svg{width:100%;height:100%;transform:rotate(-90deg)}
+.f-bg{fill:none;stroke:var(--panel2);stroke-width:12}
+.f-fg{fill:none;stroke:var(--accent);stroke-width:12;stroke-linecap:round;transition:stroke-dashoffset 1s linear}
+.f-fg.pz{stroke:var(--ok)}
+.focus.over .f-time{color:var(--warn)}
+.f-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.f-time{font-size:44px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
+.f-lbl{font-size:13px;color:var(--muted)}
+.f-durs{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.f-row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.btn.big{padding:12px 34px;font-size:17px;border-radius:14px}
+.f-msg{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin-bottom:8px}
+.f-step{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;width:100%;display:flex;flex-direction:column;align-items:center;gap:8px}
+.f-now{font-size:19px;font-weight:600}
+.f-step input{flex:1;border:1.5px solid var(--line);border-radius:10px;padding:9px 11px;background:var(--bg);outline:0;min-width:0}
+.f-step input:focus{border-color:var(--accent)}
+#f-en{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr))}
+#f-en button{border-top:1px solid var(--line);margin-top:-1px}
+.f-bottom{margin-top:6px}
+.f-done{padding-top:40px}
+.f-done h2{margin:6px 0}
+.f-done p{color:var(--muted);margin:0 0 18px}
+.f-done .f-row .btn{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 /* Mobile */
 @media (max-width:860px){
   #banner .note{margin:10px 16px 0}
@@ -209,6 +275,7 @@ button{cursor:pointer;background:none;border:0;padding:0}
     <div class="top">
       <button class="iconbtn menu" data-act="menu" aria-label="Menü">☰</button>
       <h1 id="title"></h1>
+      <button class="aibtn" data-act="focus" title="Fokus-Modus: eine Aufgabe, ein Timer">🎯 <span>Fokus</span></button>
       <button class="aibtn" data-act="ai" title="Mit Claude sortieren, zerlegen, entscheiden">🤖 <span>Claude</span></button>
     </div>
     <div id="banner"></div>
@@ -216,12 +283,13 @@ button{cursor:pointer;background:none;border:0;padding:0}
       <input id="qa" placeholder="Was geht dir durch den Kopf? Einfach reinwerfen …" enterkeyhint="done">
       <button type="submit">＋</button>
     </form>
-    <div class="hint" id="hint">Tipp: <code>#trading</code> Kategorie · <code>!</code> bis <code>!!!</code> Priorität · <code>@heute</code> <code>@morgen</code> <code>@fr</code> <code>@24.12</code> fällig</div>
+    <div class="hint" id="hint">Tipp: <code>#trading</code> Kategorie · <code>!</code>–<code>!!!</code> Priorität · <code>@morgen</code> <code>@fr</code> <code>@24.12</code> fällig · <code>~30</code> Minuten · <code>@irgendwann</code></div>
     <div class="content" id="content"></div>
   </main>
 </div>
 <nav class="tabs" id="tabs"></nav>
 <div class="ov-bg" id="ovbg"><div class="modal" id="modal"></div></div>
+<div class="focus" id="focus"></div>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -257,9 +325,9 @@ function seed(){
   ]};
 }
 let S = lsGet(LS_DATA) || seed();
-let CFG = Object.assign({clientId:"", lastSync:0, gConnected:false, gToken:"", gExp:0, gEmail:"", gFile:"", gFolder:""}, lsGet(LS_CFG) || {});
+let CFG = Object.assign({clientId:"", lastSync:0, gConnected:false, gToken:"", gExp:0, gEmail:"", gFile:"", gFolder:"", calm:false, fontSize:"m", dayEnd:"22:00", energy:"", sound:false}, lsGet(LS_CFG) || {});
 let UI = { view: (location.hash||"").slice(1) || "overview", showDone:false, menu:false };
-if (!/^(inbox|today|overview|all|done|cat-[a-z0-9]+)$/.test(UI.view)) UI.view = "overview";
+if (!/^(inbox|today|overview|all|done|later|waiting|review|cat-[a-z0-9]+)$/.test(UI.view)) UI.view = "overview";
 
 const cats = () => S.cats.filter(c => !c.deleted).sort((a,b)=>(a.order||0)-(b.order||0)||a.name.localeCompare(b.name));
 const tasks = () => S.tasks.filter(t => !t.deleted);
@@ -268,10 +336,21 @@ const kids = id => cats().filter(c => c.parentId===id);
 const descIds = id => { const out=[id]; kids(id).forEach(k => out.push(...descIds(k.id))); return out; };
 const catPath = id => { const p=[]; let c=catById(id); while(c){ p.unshift(c.name); c=catById(c.parentId); } return p.join(" › "); };
 const rootOf = id => { let c=catById(id); while(c && catById(c.parentId)) c=catById(c.parentId); return c; };
-const openIn = id => { const ids=new Set(descIds(id)); return tasks().filter(t=>!t.done && ids.has(t.catId)); };
-const inbox = () => tasks().filter(t => !t.done && !catById(t.catId));
+/* Status: offen & handlungsfähig = live; zurückgestellt (snooze/irgendwann) und „wartet auf“ zählen nicht mit */
+const isParked = t => !!t.someday || !!(t.snooze && t.snooze > dayOff(0));
+const live = t => !t.done && !t.waiting && !isParked(t);
+const ENERGY = { leicht:{ic:"🪶",n:"leicht"}, fokus:{ic:"🧠",n:"Konzentration"}, sozial:{ic:"💬",n:"sozial"}, reize:{ic:"🔊",n:"reizintensiv"} };
+const EFILTER = { "":"Alle", leicht:"🪶 Nur leichte", ruhig:"🤫 Ohne Soziales & Reize" };
+const energyOk = t => !CFG.energy || t.done || (CFG.energy==="leicht" ? t.energy==="leicht" : CFG.energy==="ruhig" ? !["sozial","reize"].includes(t.energy) : true);
+const openIn = id => { const ids=new Set(descIds(id)); return tasks().filter(t=>live(t) && ids.has(t.catId)); };
+const inbox = () => tasks().filter(t => live(t) && !catById(t.catId));
 const isOver = t => t.due && t.due < dayOff(0);
-const todayList = () => tasks().filter(t => !t.done && ((t.due && t.due <= dayOff(0)) || (t.prio===3 && !t.due)));
+const todayList = () => tasks().filter(t => live(t) && ((t.due && t.due <= dayOff(0)) || (t.prio===3 && !t.due)));
+const parkedList = () => tasks().filter(t => !t.done && !t.waiting && isParked(t));
+const waitingList = () => tasks().filter(t => !t.done && t.waiting);
+const fmtMin = m => m>=60 ? `${Math.floor(m/60)} h${m%60?` ${m%60} min`:""}` : `${m} min`;
+const fmtDate = s => { const d=new Date(s+"T12:00"); return `${["So","Mo","Di","Mi","Do","Fr","Sa"][d.getDay()]} ${d.getDate()}.${d.getMonth()+1}.`; };
+const daysSince = ts => Math.floor((now()-ts)/864e5);
 const touch = o => { o.updated = now(); return o; };
 
 function sortTasks(list){
@@ -294,10 +373,12 @@ function commit(){ save(); render(); Sync.schedule(); }
 /* ============ Schnelleingabe-Parser ============ */
 const WD = {so:0,mo:1,di:2,mi:3,do:4,fr:5,sa:6};
 function parseQuick(raw){
-  let title = raw, catId=null, prio=0, due=null;
+  let title = raw, catId=null, prio=0, due=null, someday=false, est=null;
+  title = title.replace(/(^|\s)~(\d+(?:[.,]\d+)?)\s?(h|std|m|min)?(?=\s|$)/gi, (m,sp,n,u)=>{ const v=parseFloat(n.replace(",",".")); est = Math.round(u && /^(h|std)$/i.test(u) ? v*60 : v); return " "; });
   title = title.replace(/(^|\s)(!{1,3}|![123])(?=\s|$)/g, (m,sp,p)=>{ prio = /\d/.test(p) ? +p[1] : p.length; return " "; });
   title = title.replace(/(^|\s)@(\S+)/g, (m,sp,w)=>{
     const x = w.toLowerCase();
+    if (x==="irgendwann"||x==="später"||x==="spaeter"){ someday=true; return " "; }
     if (x==="heute") due=dayOff(0);
     else if (x==="morgen") due=dayOff(1);
     else if (x==="übermorgen"||x==="uebermorgen") due=dayOff(2);
@@ -313,7 +394,7 @@ function parseQuick(raw){
     if (hit){ catId=hit.id; return " "; }
     return m;
   });
-  return { title: title.replace(/\s+/g," ").trim(), catId, prio, due };
+  return { title: title.replace(/\s+/g," ").trim(), catId, prio, due, someday, est };
 }
 
 /* ============ Sortier-Vorschläge (lernt mit) ============ */
@@ -347,7 +428,7 @@ function dueChip(t){
   const d = new Date(t.due+"T12:00");
   const wd = ["So","Mo","Di","Mi","Do","Fr","Sa"][d.getDay()];
   let cls="", txt=`${wd} ${d.getDate()}.${d.getMonth()+1}.`;
-  if (t.due<T && !t.done){ cls="over"; txt="überfällig · "+txt; }
+  if (t.due<T && !t.done){ cls="over"; txt="war für "+txt; }
   else if (t.due===T){ cls="today"; txt="Heute"; }
   else if (t.due===M) txt="Morgen";
   return `<span class="chip ${cls}">📅 ${txt}</span>`;
@@ -362,6 +443,11 @@ function taskRow(t, opt={}){
   meta += dueChip(t);
   if (t.prio) meta += `<span class="chip p${t.prio}">⚑ ${PRIO[t.prio]}</span>`;
   if (t.steps?.length) meta += `<span class="chip">☑ ${t.steps.filter(x=>x.done).length}/${t.steps.length}</span>`;
+  if (t.est) meta += `<span class="chip">⏱ ${fmtMin(t.est)}</span>`;
+  if (t.energy && ENERGY[t.energy]) meta += `<span class="chip">${ENERGY[t.energy].ic} ${ENERGY[t.energy].n}</span>`;
+  if (t.waiting) meta += `<span class="chip wait">⏳ ${esc(t.waiting)}${t.waitSince?` · seit ${daysSince(t.waitSince)||"heute"}${daysSince(t.waitSince)===1?" Tag":daysSince(t.waitSince)>1?" Tagen":""}`:""}</span>`;
+  if (!t.done && t.someday) meta += `<span class="chip">💤 irgendwann</span>`;
+  else if (!t.done && t.snooze && t.snooze > dayOff(0)) meta += `<span class="chip">💤 ab ${fmtDate(t.snooze)}</span>`;
   if (t.notes) meta += `<span class="chip">📝</span>`;
   let sug = "";
   if (opt.inbox){
@@ -369,6 +455,8 @@ function taskRow(t, opt={}){
     sug = `<div class="sugg">${s.length?`<span class="lbl">Gehört zu:</span>`:""}${s.map((c,i)=>`<button class="sbtn ${i===0?"best":""}" data-act="move" data-id="${t.id}" data-cat="${c.id}"><span class="dot" style="background:${esc(c.color)}"></span>${esc(catPath(c.id))}</button>`).join("")}
       <select class="movesel" data-move="${t.id}"><option value="">${s.length?"Andere …":"Einsortieren …"}</option>${catOptions(null)}</select></div>`;
   }
+  if (opt.unpark) sug += `<div class="sugg"><button class="sbtn" data-act="unpark" data-id="${t.id}">↩ Zurückholen</button></div>`;
+  if (opt.unwait) sug += `<div class="sugg"><button class="sbtn best" data-act="unwait" data-id="${t.id}">✓ Ist da – weiter geht's</button></div>`;
   return `<div class="task ${t.done?"done":""}" data-act="edit" data-id="${t.id}" id="t-${t.id}">
     <button class="chk ${t.prio?"p"+t.prio:""}" data-act="toggle" data-id="${t.id}" aria-label="Erledigt"></button>
     <div class="tb"><div class="tt">${esc(t.title)}</div>${meta?`<div class="meta">${meta}</div>`:""}${sug}</div></div>`;
@@ -380,7 +468,7 @@ function catOptions(selected, excludeIds=[]){
 }
 
 function renderSide(){
-  const ib = inbox().length, td = todayList().length, ov = tasks().filter(t=>!t.done&&isOver(t)).length;
+  const ib = inbox().length, td = todayList().length, ov = 0;
   const ni = (view,ic,name,ct,hot) => `<button class="ni ${UI.view===view?"on":""}" data-act="nav" data-view="${view}"><span class="ic">${ic}</span><span class="nm">${name}</span>${ct?`<span class="ct ${hot?"hot":""}">${ct}</span>`:""}</button>`;
   let tree = "";
   const walk=(pid,depth)=>kids(pid).forEach(c=>{
@@ -399,11 +487,14 @@ function renderSide(){
     <div class="nav">
       ${ni("inbox","📥","Eingang",ib,ib>0)}
       ${ni("today","☀️","Heute",td,false)}
-      ${ni("overview","🧭","Überblick",ov?ov+" überfällig":"",false)}
-      ${ni("all","📋","Alle offenen",tasks().filter(t=>!t.done).length,false)}
+      ${ni("overview","🧭","Überblick","",false)}
+      ${ni("all","📋","Alle offenen",tasks().filter(live).length,false)}
+      ${ni("later","💤","Später",parkedList().length,false)}
+      ${ni("waiting","⏳","Warte auf",waitingList().length,false)}
       <h4>Kategorien <button data-act="newcat" title="Neue Kategorie">＋</button></h4>
       ${tree || `<div class="hint" style="margin:4px 10px">Noch keine Kategorien.</div>`}
-      <h4>Archiv</h4>
+      <h4>Rückblick</h4>
+      ${ni("review","🌙","Heute geschafft",doneOn(dayOff(0)).length||"",false)}
       ${ni("done","✅","Erledigt",tasks().filter(t=>t.done).length,false)}
     </div>
     <div class="sidefoot"><div class="st" ${st.act?`data-act="${st.act}" style="cursor:pointer"`:""}><span class="sd ${st.cls}"></span><span>${esc(st.text)}</span></div>
@@ -414,36 +505,72 @@ function renderSide(){
   $("tabs").innerHTML = tab("inbox","📥","Eingang",ib) + tab("today","☀️","Heute",td) + tab("overview","🧭","Überblick",ov||"") + `<button data-act="menu"><b>🗂</b>Kategorien</button>`;
 }
 
-function listBlock(list, opt={}){ return list.length ? `<div class="list">${list.map(t=>taskRow(t,opt)).join("")}</div>` : ""; }
+function listBlock(list, opt={}){ if(!opt.all) list = list.filter(energyOk); return list.length ? `<div class="list">${list.map(t=>taskRow(t,opt)).join("")}</div>` : ""; }
 function emptyBlock(icon, text){ return `<div class="empty"><b>${icon}</b>${text}</div>`; }
 
+function filterBar(base){
+  const hidden = base.filter(t=>!energyOk(t)).length;
+  const anyTagged = tasks().some(t=>t.energy);
+  if (!anyTagged && !CFG.energy) return "";
+  return `<div class="fbar"><span class="lbl">Energie:</span>${Object.entries(EFILTER).map(([k,l])=>`<button class="sbtn ${CFG.energy===k?"best":""}" data-act="efilter" data-v="${k}">${l}</button>`).join("")}${hidden?`<span class="lbl">· ${hidden} ausgeblendet</span>`:""}</div>`;
+}
+function dayLeftMin(){ const [h,m]=(CFG.dayEnd||"22:00").split(":").map(Number); const e=new Date(); e.setHours(h,m||0,0,0); return Math.max(0,Math.round((e-new Date())/60000)); }
+function timeCheck(list){
+  const withEst = list.filter(t=>t.est); if(!withEst.length) return "";
+  const sum = withEst.reduce((a,t)=>a+t.est,0), left = dayLeftMin(), missing = list.length-withEst.length;
+  const tight = sum > left*0.75;
+  const pct = left ? Math.min(100, Math.round(sum/left*100)) : 100;
+  return `<div class="tcheck ${tight?"tight":""}"><div class="tc-top"><span>⏱ ≈ <b>${fmtMin(sum)}</b> geschätzt${missing?` <span class="muted">(+${missing} ohne Schätzung)</span>`:""}</span><span class="muted">bis ${esc(CFG.dayEnd)} noch ${fmtMin(left)}</span></div>
+    <div class="tc-bar"><i style="width:${pct}%"></i></div>
+    ${left===0?`<div class="tc-msg">Dein Tag ist eigentlich schon rum. Was noch offen ist, darf gern morgen dran sein. <button class="sbtn best" data-act="tomorrow">Auswählen</button></div>`:tight?`<div class="tc-msg">Das wird eng – völlig normal, Pläne sind immer optimistisch. Magst du etwas auf morgen schieben? <button class="sbtn best" data-act="tomorrow">Auswählen</button></div>`:""}</div>`;
+}
 function renderMain(){
   const v = UI.view; let title="", sub="", html="";
   if (v==="inbox"){
-    const l = sortTasks(inbox());
-    title="Eingang"; sub = l.length ? `${l.length} ${l.length===1?"Gedanke wartet":"Gedanken warten"} aufs Einsortieren – kein Stress, wann du willst.` : "";
-    html = l.length ? `<div class="group">${listBlock(l,{inbox:true})}</div>` : emptyBlock("🌿","Kopf ist leer. Alles einsortiert!");
+    const base = sortTasks(inbox()), l = base.filter(energyOk);
+    title="Eingang"; sub = base.length ? `${base.length} ${base.length===1?"Gedanke wartet":"Gedanken warten"} aufs Einsortieren – kein Stress, wann du willst.` : "";
+    html = filterBar(base) + (l.length ? `<div class="group">${listBlock(l,{inbox:true})}</div>` : emptyBlock("🌿", base.length?"Mit diesem Filter ist hier gerade nichts.":"Kopf ist leer. Alles einsortiert!"));
   }
   else if (v==="today"){
-    const l = sortTasks(todayList());
-    title="Heute"; sub="Fällig, überfällig oder mit hoher Priorität";
+    const base = sortTasks(todayList()), l = base.filter(energyOk);
+    title="Heute"; sub="Fällig, liegengeblieben oder mit hoher Priorität";
     const over=l.filter(isOver), rest=l.filter(t=>!isOver(t));
-    html = (over.length?`<div class="group"><h3>Überfällig</h3>${listBlock(over)}</div>`:"") + (rest.length?`<div class="group"><h3>Für heute</h3>${listBlock(rest)}</div>`:"");
-    if(!l.length) html = emptyBlock("☀️","Nichts fällig heute. Gönn dir was – oder schau in den Überblick.");
+    html = filterBar(base);
+    if (l.length) html += `<div class="fstart"><button class="btn pri" data-act="focus">🎯 Fokus starten</button><span class="muted">Eine Aufgabe, ein Timer, sonst nichts.</span></div>`;
+    html += timeCheck(l);
+    if (over.length) html += `<div class="group"><h3>🔁 Liegengeblieben – passiert jedem <span style="flex:1"></span><button class="sbtn best" data-act="replan">Neu planen</button></h3>${listBlock(over)}</div>`;
+    if (rest.length) html += `<div class="group"><h3>Für heute</h3>${listBlock(rest)}</div>`;
+    if (!l.length) html += emptyBlock("☀️", base.length?"Mit diesem Filter ist für heute nichts dabei.":"Nichts fällig heute. Gönn dir was – oder schau in den Überblick.");
   }
   else if (v==="all"){
-    title="Alle offenen";
-    const l = tasks().filter(t=>!t.done);
-    const ib = sortTasks(l.filter(t=>!catById(t.catId)));
-    html = ib.length?`<div class="group"><h3>📥 Eingang</h3>${listBlock(ib)}</div>`:"";
-    kids(null).forEach(r=>{ const g=sortTasks(openIn(r.id)); if(g.length) html+=`<div class="group"><h3><span class="dot" style="background:${esc(r.color)}"></span>${esc(r.name)}</h3>${listBlock(g,{subOnly:true,rootId:r.id})}</div>`; });
-    if(!l.length) html = emptyBlock("🎉","Keine offenen Aufgaben.");
+    title="Alle offenen"; sub="Ohne Zurückgestelltes und „Warte auf“";
+    const base = tasks().filter(live);
+    const ib = sortTasks(base.filter(t=>!catById(t.catId)));
+    html = filterBar(base);
+    if (ib.length) html += `<div class="group"><h3>📥 Eingang</h3>${listBlock(ib)}</div>`;
+    kids(null).forEach(r=>{ const g=sortTasks(openIn(r.id)).filter(energyOk); if(g.length) html+=`<div class="group"><h3><span class="dot" style="background:${esc(r.color)}"></span>${esc(r.name)}</h3>${listBlock(g,{subOnly:true,rootId:r.id})}</div>`; });
+    if (!base.filter(energyOk).length) html += emptyBlock("🎉","Keine offenen Aufgaben.");
   }
+  else if (v==="later"){
+    title="Später"; sub="Zurückgestellt – taucht von selbst wieder auf. Aus den Augen, aber nicht vergessen.";
+    const l = parkedList(), sn = l.filter(t=>!t.someday).sort((a,b)=>a.snooze<b.snooze?-1:1), sd = sortTasks(l.filter(t=>t.someday));
+    const byDay = {}; sn.forEach(t=>(byDay[t.snooze]=byDay[t.snooze]||[]).push(t));
+    Object.entries(byDay).forEach(([d,g])=>{ html += `<div class="group"><h3>Kommt zurück am ${fmtDate(d)}${d===dayOff(1)?" (morgen)":""}</h3>${listBlock(g,{all:true,unpark:true})}</div>`; });
+    if (sd.length) html += `<div class="group"><h3>💤 Irgendwann</h3>${listBlock(sd,{all:true,unpark:true})}</div>`;
+    if (!l.length) html = emptyBlock("💤","Nichts zurückgestellt. In jeder Aufgabe findest du „Zurückstellen“ – oder tippe <code>@irgendwann</code>.");
+  }
+  else if (v==="waiting"){
+    title="Warte auf"; sub="Liegt gerade bei jemand anderem – zählt nicht als offen.";
+    const l = waitingList().sort((a,b)=>(a.waitSince||0)-(b.waitSince||0));
+    html = l.length ? `<div class="group">${listBlock(l,{all:true,unwait:true})}</div>` + (l.some(t=>t.waitSince && daysSince(t.waitSince)>=7)?`<div class="hint" style="margin:10px 4px">Bei manchem wartest du schon über eine Woche. Ein kurzes Nachhaken ist völlig okay.</div>`:"")
+      : emptyBlock("⏳","Du wartest gerade auf nichts. Trag in einer Aufgabe unter „Mehr“ ein, worauf du wartest.");
+  }
+  else if (v==="review"){ ({title, sub, html} = reviewView()); }
   else if (v==="done"){
     title="Erledigt";
     const l = sortTasks(tasks().filter(t=>t.done)).slice(0,200);
     sub = l.length ? "Schau, was du schon alles geschafft hast." : "";
-    html = l.length ? `<div class="group">${listBlock(l)}</div>` : emptyBlock("🌱","Hier landet alles, was du abhakst.");
+    html = l.length ? `<div class="group">${listBlock(l,{all:true})}</div>` : emptyBlock("🌱","Hier landet alles, was du abhakst.");
   }
   else if (v.startsWith("cat-")){
     const c = catById(v.slice(4));
@@ -451,37 +578,42 @@ function renderMain(){
     title = `<span class="dot" style="display:inline-block;background:${esc(c.color)};width:12px;height:12px;margin-right:8px;vertical-align:middle"></span>${esc(c.name)}`;
     const parent = catById(c.parentId);
     sub = parent ? `in ${esc(catPath(parent.id))}` : "";
-    const own = sortTasks(tasks().filter(t=>t.catId===c.id && !t.done));
-    html = `<div class="group"><h3>Direkt in ${esc(c.name)} <span style="flex:1"></span><button class="sbtn" data-act="editcat" data-id="${c.id}">✎ Bearbeiten</button><button class="sbtn" data-act="newcat" data-parent="${c.id}">＋ Unterkategorie</button></h3>${own.length?listBlock(own,{showCat:false}):`<div class="hint" style="margin:4px">Keine Aufgaben direkt hier. Tipp: <code>#${esc(norm(c.name))}</code> beim Eintippen.</div>`}</div>`;
+    html = filterBar(openIn(c.id));
+    const own = sortTasks(tasks().filter(t=>t.catId===c.id && live(t)));
+    html += `<div class="group"><h3>Direkt in ${esc(c.name)} <span style="flex:1"></span><button class="sbtn" data-act="editcat" data-id="${c.id}">✎ Bearbeiten</button><button class="sbtn" data-act="newcat" data-parent="${c.id}">＋ Unterkategorie</button></h3>${own.filter(energyOk).length?listBlock(own,{showCat:false}):`<div class="hint" style="margin:4px">Keine Aufgaben direkt hier. Tipp: <code>#${esc(norm(c.name))}</code> beim Eintippen.</div>`}</div>`;
     const walk=(pid,depth)=>kids(pid).forEach(k=>{
-      const l = sortTasks(tasks().filter(t=>t.catId===k.id && !t.done));
-      html += `<div class="group" style="margin-left:${depth*14}px"><h3><span class="dot" style="background:${esc(k.color)}"></span><button data-act="nav" data-view="cat-${k.id}">${esc(catPath(k.id).split(" › ").slice(catPath(c.id).split(" › ").length).join(" › "))}</button><span>· ${openIn(k.id).length}</span></h3>${l.length?listBlock(l,{showCat:false}):`<div class="hint" style="margin:4px">leer</div>`}</div>`;
+      const l = sortTasks(tasks().filter(t=>t.catId===k.id && live(t)));
+      html += `<div class="group" style="margin-left:${depth*14}px"><h3><span class="dot" style="background:${esc(k.color)}"></span><button data-act="nav" data-view="cat-${k.id}">${esc(catPath(k.id).split(" › ").slice(catPath(c.id).split(" › ").length).join(" › "))}</button><span>· ${openIn(k.id).length}</span></h3>${l.filter(energyOk).length?listBlock(l,{showCat:false}):`<div class="hint" style="margin:4px">leer</div>`}</div>`;
       walk(k.id,depth+1);
     });
     walk(c.id,0);
-    const ids=new Set(descIds(c.id)); const dn = sortTasks(tasks().filter(t=>t.done && ids.has(t.catId)));
+    const ids=new Set(descIds(c.id));
+    const parkedHere = tasks().filter(t=>!t.done && ids.has(t.catId) && (t.waiting || isParked(t)));
+    if (parkedHere.length) html += `<div class="hint" style="margin:14px 4px 0">Außerdem ${parkedHere.length} zurückgestellt oder wartend – siehe <button class="sbtn" data-act="nav" data-view="later">💤 Später</button> <button class="sbtn" data-act="nav" data-view="waiting">⏳ Warte auf</button></div>`;
+    const dn = sortTasks(tasks().filter(t=>t.done && ids.has(t.catId)));
     if (dn.length){
       html += `<button class="showdone" data-act="showdone">${UI.showDone?"▾":"▸"} Erledigt (${dn.length})</button>`;
-      if (UI.showDone) html += listBlock(dn.slice(0,100));
+      if (UI.showDone) html += listBlock(dn.slice(0,100),{all:true});
     }
   }
   else { // overview
     title="Überblick"; sub = greeting();
-    const open = tasks().filter(t=>!t.done);
+    const open = tasks().filter(live);
     const over = open.filter(isOver).length, ib = inbox().length, td = todayList().length;
-    const doneToday = tasks().filter(t=>t.done && t.doneAt && dstr(new Date(t.doneAt))===dayOff(0)).length;
-    html = `<div class="stats">
+    const doneToday = doneOn(dayOff(0)).length;
+    html = filterBar(open) + `<div class="stats">
       <button class="stat" data-act="nav" data-view="inbox"><div class="n">${ib}</div><div class="l">📥 im Eingang</div></button>
       <button class="stat" data-act="nav" data-view="today"><div class="n">${td}</div><div class="l">☀️ für heute</div></button>
-      <button class="stat ${over?"over":""}" data-act="nav" data-view="today"><div class="n">${over}</div><div class="l">⏰ überfällig</div></button>
-      <button class="stat" data-act="nav" data-view="done"><div class="n">${doneToday}</div><div class="l">✅ heute geschafft</div></button></div>`;
+      <button class="stat ${over?"over":""}" data-act="${over?"replan":"nav"}" data-view="today"><div class="n">${over}</div><div class="l">🔁 neu planen</div></button>
+      <button class="stat" data-act="nav" data-view="review"><div class="n">${doneToday}</div><div class="l">✅ heute geschafft</div></button></div>`;
+    if (new Date().getHours()>=17 && (doneToday || stepsOn(dayOff(0)).length)) html += `<div class="note" style="border-left-color:var(--ok)">🌙 Feierabend in Sicht? Schau dir an, was du heute geschafft hast. <button class="sbtn best" data-act="nav" data-view="review" style="margin-left:6px">Rückblick</button></div>`;
     if (ib>=5) html += `<div class="note">📥 Im Eingang liegen ${ib} Sachen. Ein paar Minuten Einsortieren hilft – ich schlage dir jeweils eine passende Kategorie vor. <button class="sbtn best" data-act="nav" data-view="inbox" style="margin-left:6px">Los geht's</button></div>`;
     html += `<div class="cards">`;
     kids(null).forEach(r=>{
-      const l = sortTasks(openIn(r.id)), ovc = l.filter(isOver).length;
+      const l = sortTasks(openIn(r.id)).filter(energyOk), ovc = l.filter(isOver).length;
       const subs = kids(r.id).map(k=>`<button data-act="nav" data-view="cat-${k.id}">${esc(k.name)}<em>${openIn(k.id).length}</em></button>`).join("");
       html += `<div class="card" style="--c:${esc(r.color)}">
-        <div class="hd" data-act="nav" data-view="cat-${r.id}"><b>${esc(r.name)}</b>${ovc?`<span class="ov">${ovc} überfällig</span>`:""}<span>${l.length} offen ›</span></div>
+        <div class="hd" data-act="nav" data-view="cat-${r.id}"><b>${esc(r.name)}</b>${ovc?`<span class="ov">${ovc} neu planen</span>`:""}<span>${l.length} offen ›</span></div>
         ${subs?`<div class="subs">${subs}</div>`:""}
         <div class="mini">${l.slice(0,4).map(t=>taskRow(t,{subOnly:true,rootId:r.id, showCat: !!catById(t.catId)?.parentId})).join("") || `<div class="nothing">Alles erledigt ✨</div>`}</div>
         ${l.length>4?`<button class="showdone" style="margin:6px 0 0" data-act="nav" data-view="cat-${r.id}">+ ${l.length-4} weitere</button>`:""}
@@ -493,6 +625,54 @@ function renderMain(){
   }
   $("title").innerHTML = title + (sub?`<span class="sub">${sub}</span>`:"");
   $("content").innerHTML = html;
+}
+const doneOn = d => tasks().filter(t=>t.done && t.doneAt && dstr(new Date(t.doneAt))===d);
+const stepsOn = d => tasks().flatMap(t=>(t.steps||[]).filter(s=>s.done && s.doneAt && dstr(new Date(s.doneAt))===d).map(s=>({s,t})));
+function reviewView(){
+  const T = dayOff(0), dt = sortTasks(doneOn(T)), ds = stepsOn(T).filter(x=>!x.t.done || dstr(new Date(x.t.doneAt||0))!==T);
+  const days = [...Array(7)].map((_,i)=>dayOff(i-6)).map(d=>({d, n:doneOn(d).length + stepsOn(d).length}));
+  const max = Math.max(1,...days.map(x=>x.n));
+  let html = `<div class="stats" style="grid-template-columns:repeat(2,1fr)"><div class="stat"><div class="n">${dt.length}</div><div class="l">Aufgaben erledigt</div></div><div class="stat"><div class="n">${ds.length}</div><div class="l">Schritte geschafft</div></div></div>`;
+  if (!dt.length && !ds.length) html += `<div class="note" style="border-left-color:var(--ok)">Heute noch keine Häkchen – und das ist okay. Ausruhen, Durchhalten und Dinge im Kopf sortieren zählen auch. Morgen ist ein neuer Tag. 🌱</div>`;
+  else html += `<div class="note" style="border-left-color:var(--ok)">${dt.length+ds.length>=5?"Starker Tag!":"Gut gemacht."} Jedes Häkchen hier hast du dir verdient. 🌙</div>`;
+  if (dt.length) html += `<div class="group"><h3>✅ Erledigt</h3>${listBlock(dt,{all:true})}</div>`;
+  if (ds.length) html += `<div class="group"><h3>☑ Schritte</h3><div class="list">${ds.map(({s,t})=>`<div class="task" data-act="edit" data-id="${t.id}"><span class="chk" style="background:var(--ok);border-color:var(--ok)"></span><div class="tb"><div class="tt">${esc(s.title)}</div><div class="meta"><span class="chip">aus „${esc(t.title)}“</span></div></div></div>`).join("")}</div></div>`;
+  html += `<div class="group"><h3>Die letzten 7 Tage</h3><div class="week">${days.map(x=>{ const d=new Date(x.d+"T12:00"); return `<div class="wd"><div class="wb"><i style="height:${Math.round(x.n/max*100)}%"></i></div><b>${x.n||""}</b><span>${x.d===T?"heute":["So","Mo","Di","Mi","Do","Fr","Sa"][d.getDay()]}</span></div>`; }).join("")}</div><div class="hint" style="margin:8px 4px">Kein Wettbewerb, keine Serie, die reißen kann – nur ein Blick zurück.</div></div>`;
+  return {title:"Rückblick", sub:dateLong(), html};
+}
+
+/* Neu planen ohne Schuldgefühl */
+function snapshot(ids){ const m={}; ids.forEach(id=>{ const t=S.tasks.find(x=>x.id===id); if(t) m[id]=JSON.stringify(t); }); return () => { const t0=now(); Object.entries(m).forEach(([id,j])=>{ const i=S.tasks.findIndex(x=>x.id===id); if(i>=0) S.tasks[i]={...JSON.parse(j),updated:t0}; }); commit(); }; }
+function replan(){
+  const l = sortTasks(tasks().filter(t=>live(t) && isOver(t)));
+  if (!l.length){ toast("Nichts liegengeblieben 🌿"); return; }
+  openModal(`<h2>🔁 Neu planen</h2>
+    <p style="margin:0 0 14px;color:var(--muted)">${l.length} ${l.length===1?"Aufgabe ist":"Aufgaben sind"} liegengeblieben. Das passiert jedem – Pläne sind Schätzungen, keine Versprechen. Wie willst du weitermachen?</p>
+    <div style="display:grid;gap:8px">
+      <button class="stat" data-act="rp" data-k="spread"><div style="font-weight:600">🌊 Sanft verteilen</div><div class="l">Höchstens 3 pro Tag ab heute, Wichtiges zuerst</div></button>
+      <button class="stat" data-act="rp" data-k="today"><div style="font-weight:600">☀️ Alles auf heute</div><div class="l">Wenn du heute Kapazität hast</div></button>
+      <button class="stat" data-act="rp" data-k="nodate"><div style="font-weight:600">🗓 Datum entfernen</div><div class="l">Bleibt in der Kategorie, ohne Termindruck</div></button>
+      <button class="stat" data-act="rp" data-k="some"><div style="font-weight:600">💤 Auf „Irgendwann“</div><div class="l">Aus den Augen, nicht vergessen</div></button>
+    </div>
+    <div class="acts"><span class="sp"></span><button class="btn" data-act="close">Abbrechen</button></div>`);
+}
+function doReplan(k){
+  const l = sortTasks(tasks().filter(t=>live(t) && isOver(t)));
+  const undo = snapshot(l.map(t=>t.id));
+  if (k==="spread"){ const load={}; tasks().filter(t=>live(t)&&t.due&&t.due>=dayOff(0)).forEach(t=>load[t.due]=(load[t.due]||0)+1);
+    l.forEach(t=>{ let i=0; while((load[dayOff(i)]||0)>=3) i++; t.due=dayOff(i); load[t.due]=(load[t.due]||0)+1; touch(t); }); }
+  l.forEach(t=>{ if(k==="today") t.due=dayOff(0); if(k==="nodate") t.due=null; if(k==="some"){ t.someday=true; } touch(t); });
+  closeModal(); commit();
+  toast({spread:"Sanft verteilt 🌊", today:"Alles auf heute ☀️", nodate:"Termindruck raus 🗓", some:"Auf Irgendwann 💤"}[k], undo);
+}
+function pickTomorrow(){
+  const l = sortTasks(todayList()).filter(energyOk);
+  let sel = new Set();
+  openModal(`<h2>Was darf auf morgen?</h2><p style="margin:0 0 12px;color:var(--muted);font-size:14px">Tipp an, was heute nicht mehr sein muss.</p>
+    <div class="list" id="tm">${l.map(t=>`<div class="task" data-id="${t.id}"><span class="chk"></span><div class="tb"><div class="tt">${esc(t.title)}</div><div class="meta">${t.est?`<span class="chip">⏱ ${fmtMin(t.est)}</span>`:""}${t.prio?`<span class="chip p${t.prio}">⚑ ${PRIO[t.prio]}</span>`:""}</div></div></div>`).join("")}</div>
+    <div class="acts"><span class="sp"></span><button class="btn" data-act="close">Abbrechen</button><button class="btn pri" id="tm-go">Auf morgen</button></div>`);
+  $("tm").onclick = e => { const r=e.target.closest(".task"); if(!r) return; e.stopPropagation(); const id=r.dataset.id; sel.has(id)?sel.delete(id):sel.add(id); r.classList.toggle("done", sel.has(id)); };
+  $("tm-go").onclick = () => { if(!sel.size){ closeModal(); return; } const undo=snapshot([...sel]); sel.forEach(id=>{ const t=S.tasks.find(x=>x.id===id); t.due=dayOff(1); touch(t); }); closeModal(); commit(); toast(`${sel.size} auf morgen verschoben`, undo); };
 }
 function greeting(){
   const h = new Date().getHours();
@@ -507,39 +687,66 @@ function closeModal(){ $("ovbg").classList.remove("on"); $("modal").innerHTML=""
 
 function editTask(id){
   const t = S.tasks.find(x=>x.id===id); if(!t) return;
-  let prio = t.prio||0;
+  let prio = t.prio||0, est = t.est||0, energy = t.energy||"";
   let steps = (t.steps||[]).map(s=>({...s}));
-  openModal(`<h2>Aufgabe</h2>
+  const parked = !t.done && isParked(t);
+  const segBtns = (arr,cur,key) => arr.map(([v,l])=>`<button type="button" data-${key}="${v}" class="${String(v)===String(cur)?"on":""}">${l}</button>`).join("");
+  openModal(`<h2 style="display:flex;align-items:center;gap:10px"><span style="flex:1">Aufgabe</span>${t.done?"":`<button class="btn" id="f-focus" style="font-size:14px">🎯 Fokus</button>`}</h2>
+    ${parked?`<div class="note" style="margin:0 0 14px;border-left-color:var(--accent);display:flex;align-items:center;gap:10px"><span style="flex:1">💤 ${t.someday?"Liegt auf „Irgendwann“":`Zurückgestellt bis ${fmtDate(t.snooze)}`}</span><button class="sbtn best" id="f-unpark">Zurückholen</button></div>`:""}
     <div class="fld"><label>Titel</label><input id="f-title" value="${esc(t.title)}" autofocus></div>
     <div class="fld"><label>Schritte</label><div id="f-steps" class="steps"></div>
       <div class="codebox" style="margin-top:6px"><input id="f-step" style="font-family:inherit;font-size:15px" placeholder="＋ Schritt hinzufügen" enterkeyhint="done"><button type="button" class="btn" style="white-space:nowrap" id="f-ai" title="Von Claude in kleine Schritte zerlegen lassen">🤖 Zerlegen</button></div></div>
-    <div class="fld"><label>Notizen</label><textarea id="f-notes" placeholder="Details, Links, Gedanken …">${esc(t.notes)}</textarea></div>
     <div class="row2">
       <div class="fld"><label>Kategorie</label><select id="f-cat"><option value="">📥 Eingang</option>${catOptions(t.catId)}</select></div>
       <div class="fld"><label>Fällig</label><input type="date" id="f-due" value="${t.due||""}"></div>
     </div>
-    <div class="fld"><label>Priorität</label><div class="seg" id="f-prio">${["keine","niedrig","mittel","hoch"].map((p,i)=>`<button type="button" data-p="${i}" class="${i===prio?"on":""}">${i?"⚑ ":""}${p}</button>`).join("")}</div></div>
+    <div class="fld"><label>Priorität</label><div class="seg" id="f-prio">${segBtns([[0,"keine"],[1,"⚑ niedrig"],[2,"⚑ mittel"],[3,"⚑ hoch"]],prio,"p")}</div></div>
+    <details class="more" ${t.est||t.energy||t.waiting||t.notes?"open":""}><summary>Mehr: Dauer, Energie, Warten, Notizen</summary>
+      <div class="fld"><label>Ungefähre Dauer <span class="opt">optional</span></label><div class="seg" id="f-est">${segBtns([[0,"–"],[5,"5′"],[15,"15′"],[30,"30′"],[60,"1 h"],[120,"2 h"]],est,"v")}</div></div>
+      <div class="fld"><label>Was kostet es dich? <span class="opt">optional</span></label><div class="seg" id="f-en">${segBtns([["","–"],...Object.entries(ENERGY).map(([k,v])=>[k,`${v.ic} ${v.n}`])],energy,"v")}</div></div>
+      <div class="fld"><label>⏳ Warte auf … <span class="opt">optional – solange ausgefüllt, zählt die Aufgabe nicht als offen</span></label><input id="f-wait" value="${esc(t.waiting||"")}" placeholder="z. B. Antwort von Max, Paket, Rückruf Arzt"></div>
+      <div class="fld"><label>Notizen</label><textarea id="f-notes" placeholder="Details, Links, Gedanken …">${esc(t.notes)}</textarea></div>
+    </details>
+    ${t.done?"":`<div class="fld" style="margin-top:12px"><label>💤 Zurückstellen – taucht erst dann wieder auf</label><div class="seg" id="f-park"><button type="button" data-k="1">Morgen</button><button type="button" data-k="7">Nächste Woche</button><button type="button" data-k="date">Datum …</button><button type="button" data-k="some">Irgendwann</button></div><input type="date" id="f-pdate" style="display:none;margin-top:8px" min="${dayOff(1)}"></div>`}
     <div class="acts"><button class="btn dan" data-act="deltask" data-id="${id}">Löschen</button><span class="sp"></span><button class="btn" data-act="close">Abbrechen</button><button class="btn pri" id="f-save">Speichern</button></div>`);
   const drawSteps = () => {
     $("f-steps").innerHTML = steps.map((s,i)=>`<div class="step ${s.done?"done":""}"><button type="button" class="chk" data-i="${i}" data-k="t"></button><span>${esc(s.title)}</span><button type="button" class="x" data-i="${i}" data-k="x" title="Entfernen">×</button></div>`).join("");
   };
   drawSteps();
-  $("f-steps").onclick = e => { const b=e.target.closest("button"); if(!b) return; const i=+b.dataset.i; if(b.dataset.k==="t") steps[i].done=!steps[i].done; else steps.splice(i,1); drawSteps(); };
+  $("f-steps").onclick = e => { const b=e.target.closest("button"); if(!b) return; const i=+b.dataset.i; if(b.dataset.k==="t"){ steps[i].done=!steps[i].done; steps[i].doneAt=steps[i].done?now():null; } else steps.splice(i,1); drawSteps(); };
   $("f-step").onkeydown = e => { if(e.key==="Enter"){ e.preventDefault(); const v=e.target.value.trim(); if(v){ steps.push({id:uid(),title:v,done:false}); e.target.value=""; drawSteps(); } } };
-  $("f-prio").onclick = e => { const b=e.target.closest("button"); if(!b) return; prio=+b.dataset.p; [...$("f-prio").children].forEach(x=>x.classList.toggle("on",x===b)); };
+  const wireSeg = (id,fn) => $(id).onclick = e => { const b=e.target.closest("button"); if(!b) return; fn(b); [...$(id).children].forEach(x=>x.classList.toggle("on",x===b)); };
+  wireSeg("f-prio", b=>prio=+b.dataset.p);
+  wireSeg("f-est", b=>est=+b.dataset.v);
+  wireSeg("f-en", b=>energy=b.dataset.v);
+  let park = null;
   const collect = () => {
     const title = $("f-title").value.trim(); if(!title) return false;
     const pend = $("f-step").value.trim(); if (pend) steps.push({id:uid(),title:pend,done:false});
     const newCat = $("f-cat").value || null;
     if (newCat && newCat!==t.catId && !catById(t.catId)) learn(t,newCat);
-    Object.assign(t,{title, notes:$("f-notes").value, catId:newCat, due:$("f-due").value||null, prio, steps}); touch(t);
-    return true;
+    const w = $("f-wait").value.trim();
+    if (w && !t.waiting) t.waitSince = now(); if (!w) t.waitSince = null;
+    Object.assign(t,{title, notes:$("f-notes").value, catId:newCat, due:$("f-due").value||null, prio, steps, est:est||null, energy:energy||null, waiting:w||null});
+    if (park){ Object.assign(t, park); }
+    touch(t); return true;
   };
   const doSave = () => { if(!collect()) return; closeModal(); commit(); };
   $("f-save").onclick = doSave;
   $("f-title").onkeydown = e => { if(e.key==="Enter") doSave(); };
   $("f-ai").onclick = () => { if(!collect()) return; save(); render(); Sync.schedule(); copyPrompt(Bridge.steps(t)); };
+  if ($("f-focus")) $("f-focus").onclick = () => { if(!collect()) return; closeModal(); commit(); Focus.open(t.id); };
+  if ($("f-unpark")) $("f-unpark").onclick = () => { park = {snooze:null, someday:false}; if(!collect()) return; closeModal(); commit(); toast("Ist wieder da ✓"); };
+  if ($("f-park")) $("f-park").onclick = e => {
+    const b=e.target.closest("button"); if(!b) return; const k=b.dataset.k;
+    if (k==="date"){ const d=$("f-pdate"); d.style.display="block"; d.focus(); try{ d.showPicker(); }catch(_){}
+      d.onchange = () => { if(!d.value) return; park={snooze:d.value, someday:false}; if(!collect()) return; closeModal(); commit(); toast(`💤 Bis ${fmtDate(d.value)} zurückgestellt`, undoPark(t)); }; return; }
+    park = k==="some" ? {someday:true, snooze:null} : {snooze:dayOff(+k), someday:false};
+    if(!collect()) return; closeModal(); commit();
+    toast(k==="some" ? "💤 Liegt jetzt auf „Irgendwann“" : `💤 Taucht ${k==="1"?"morgen":"nächste Woche"} wieder auf`, undoPark(t));
+  };
 }
+const undoPark = t => () => { t.snooze=null; t.someday=false; touch(t); commit(); };
 
 function editCat(id, parentId=null){
   const c = id ? catById(id) : null;
@@ -589,11 +796,22 @@ function settings(){
       </div>
       <div class="help" style="font-size:12px;color:var(--muted);margin-top:10px">Deine Daten liegen als <code>${FILE}</code> im Ordner <i>Kopfraum</i> in deinem Google Drive. Kopfraum sieht nur Dateien, die es selbst angelegt hat. Google gibt die Verbindung jeweils für eine Stunde frei; danach reicht ein Tipp auf „tippen zum Fortsetzen“.</div>
     </div>
+    <div class="sect"><h3>🧘 Ansicht & Ruhe</h3>
+      <label class="tgl"><input type="checkbox" id="s-calm" ${CFG.calm?"checked":""}><span><b>Reizarmer Modus</b><br><small>Gedämpfte Farben und Emojis, keine Animationen, keine Schatten</small></span></label>
+      <label class="tgl"><input type="checkbox" id="s-sound" ${CFG.sound?"checked":""}><span><b>Leiser Ton am Timer-Ende</b><br><small>Sonst nur Vibration (Handy) und ein Hinweis auf dem Bildschirm</small></span></label>
+      <div class="row2" style="margin-top:10px">
+        <div class="fld"><label>Schriftgröße</label><div class="seg" id="s-fs">${[["s","klein"],["m","normal"],["l","groß"],["xl","sehr groß"]].map(([k,l])=>`<button type="button" data-v="${k}" class="${CFG.fontSize===k?"on":""}">${l}</button>`).join("")}</div></div>
+        <div class="fld"><label>Mein Tag endet um <span class="opt">für den Zeit-Check</span></label><input type="time" id="s-end" value="${esc(CFG.dayEnd)}"></div>
+      </div>
+    </div>
     <div class="sect"><h3>💾 Sicherung</h3>
       <div class="acts" style="margin-top:0"><button class="btn" data-act="export">Exportieren (.json)</button><label class="btn" style="cursor:pointer">Importieren<input type="file" accept=".json,application/json" id="s-imp" hidden></label></div>
     </div>
     <div class="acts"><span class="sp"></span><button class="btn pri" id="s-ok">Fertig</button></div>`);
   $("s-ok").onclick = () => { saveCid(); closeModal(); };
+  const live2 = () => { CFG.calm=$("s-calm").checked; CFG.sound=$("s-sound").checked; CFG.dayEnd=$("s-end").value||"22:00"; lsSet(LS_CFG,CFG); applyLook(); render(); };
+  $("s-calm").onchange = live2; $("s-sound").onchange = () => { live2(); if(CFG.sound) softChime(); }; $("s-end").onchange = live2;
+  $("s-fs").onclick = e => { const b=e.target.closest("button"); if(!b) return; CFG.fontSize=b.dataset.v; [...$("s-fs").children].forEach(x=>x.classList.toggle("on",x===b)); lsSet(LS_CFG,CFG); applyLook(); };
   $("s-imp").onchange = e => {
     const f = e.target.files[0]; if(!f) return;
     f.text().then(txt=>{ const d=JSON.parse(txt); if(!d.tasks||!d.cats) throw 0; S = merge(S,d); commit(); toast("Import zusammengeführt ✓"); closeModal(); })
@@ -609,9 +827,9 @@ function saveCid(){
 const dateLong = () => new Date().toLocaleDateString("de-DE",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
 const Bridge = {
   catList(){ const out=[]; const walk=pid=>kids(pid).forEach(c=>{ out.push(`${c.id}: ${catPath(c.id)}`); walk(c.id); }); walk(null); return out.length ? out.join("\n") : "(noch keine)"; },
-  taskLine(t){ const p=[`${t.id}: ${t.title}`]; const c=catById(t.catId); if(c) p.push(`[${catPath(c.id)}]`); if(t.due) p.push(`fällig ${t.due}`); if(t.prio) p.push(`prio ${t.prio}`); return p.join(" "); },
+  taskLine(t){ const p=[`${t.id}: ${t.title}`]; const c=catById(t.catId); if(c) p.push(`[${catPath(c.id)}]`); if(t.due) p.push(`fällig ${t.due}`); if(t.prio) p.push(`prio ${t.prio}`); if(t.est) p.push(`~${t.est} min`); if(t.energy) p.push(`energie ${t.energy}`); return p.join(" "); },
   head(task){ return `Du hilfst mir bei meiner To-Do-App „Kopfraum“. Ich habe ADHS und bin etwas autistisch veranlagt: Bitte kurz, konkret und freundlich, ohne Druck.\nHeute ist ${dateLong()} (${dayOff(0)}).\n\nAUFGABE:\n${task}\n`; },
-  fmt: `\nANTWORTFORMAT:\nSchreib zuerst 1–3 kurze Sätze für mich. Danach GENAU EINEN Codeblock mit der Sprache json in dieser Form:\n{"kopfraum":1,"ops":[ … ]}\n\nErlaubte ops:\n- {"op":"move","id":"<Aufgaben-ID>","cat":"<Kategorie-ID>"}  optional zusätzlich "due":"JJJJ-MM-TT" und "prio":0-3\n- {"op":"add","title":"…","cat":"<Kategorie-ID oder null = Eingang>"}  optional "due", "prio", "steps":["…"]\n- {"op":"steps","id":"<Aufgaben-ID>","steps":["…","…"]}\n- {"op":"newcat","id":"neu1","name":"…","parent":"<Kategorie-ID oder null>"}  nur wenn wirklich keine passt; danach "neu1" als cat benutzbar\nprio: 0 keine, 1 niedrig, 2 mittel, 3 hoch. Verwende nur IDs aus den Listen oben. Lass Felder weg, die sich nicht ändern sollen.`,
+  fmt: `\nANTWORTFORMAT:\nSchreib zuerst 1–3 kurze Sätze für mich. Danach GENAU EINEN Codeblock mit der Sprache json in dieser Form:\n{"kopfraum":1,"ops":[ … ]}\n\nErlaubte ops:\n- {"op":"move","id":"<Aufgaben-ID>","cat":"<Kategorie-ID>"}  optional zusätzlich "due":"JJJJ-MM-TT" und "prio":0-3\n- {"op":"add","title":"…","cat":"<Kategorie-ID oder null = Eingang>"}  optional "due", "prio", "steps":["…"]\n- {"op":"steps","id":"<Aufgaben-ID>","steps":["…","…"]}\n- {"op":"newcat","id":"neu1","name":"…","parent":"<Kategorie-ID oder null>"}  nur wenn wirklich keine passt; danach "neu1" als cat benutzbar\nBei move und add zusätzlich optional: "est": geschätzte Minuten (Zahl), "energy": "leicht" | "fokus" | "sozial" | "reize".\nprio: 0 keine, 1 niedrig, 2 mittel, 3 hoch. Verwende nur IDs aus den Listen oben. Lass Felder weg, die sich nicht ändern sollen.`,
   sortInbox(){
     const l = inbox(); if(!l.length){ toast("Der Eingang ist leer 🌿"); return null; }
     return this.head("Sortiere alle Einträge aus meinem Eingang in passende Kategorien. Wenn ein Datum oder eine Dringlichkeit herauszulesen ist, setze due/prio. Formuliere Titel nicht um.")
@@ -626,7 +844,7 @@ const Bridge = {
       + `\nDIE AUFGABE:\n${this.taskLine(t)}${t.notes?`\nNotizen: ${t.notes}`:""}${t.steps?.length?`\nSchon vorhandene Schritte: ${t.steps.map(s=>s.title).join(" | ")}`:""}\n` + this.fmt + `\nBenutze hier ein einziges {"op":"steps","id":"${t.id}","steps":[…]}.`;
   },
   focus(time, energy, mood){
-    const l = sortTasks(tasks().filter(t=>!t.done)).slice(0,80);
+    const l = sortTasks(tasks().filter(t=>live(t)&&energyOk(t))).slice(0,80);
     return this.head(`Hilf mir zu entscheiden, was ich JETZT mache. Ich habe ${time} Zeit und meine Energie ist ${energy}.${mood?` Außerdem: ${mood}`:""}\nSchlag mir 1 Hauptaufgabe und höchstens 2 Alternativen vor, jeweils mit einem Satz warum und dem allerersten Mini-Schritt. Keine Liste mit allem, kein Codeblock nötig.`)
       + `\nMEINE OFFENEN AUFGABEN:\n${l.map(t=>this.taskLine(t)).join("\n")}\n`;
   },
@@ -658,6 +876,7 @@ const Bridge = {
     const cid = id => map[id] || (catById(id) ? id : null);
     const okDue = d => typeof d==="string" && /^\d{4}-\d{2}-\d{2}$/.test(d) ? d : null;
     const okPrio = p => [0,1,2,3].includes(+p) ? +p : 0;
+    const okEst = m => (+m>0 && +m<=600) ? Math.round(+m) : null;
     const mkSteps = arr => (arr||[]).filter(x=>typeof x==="string"&&x.trim()).map(x=>({id:uid(),title:x.trim(),done:false}));
     ops.filter(o=>o.op==="newcat" && o.name).forEach(o=>{
       const pid = cid(o.parent); const sib = cats().filter(x=>x.parentId===pid);
@@ -666,8 +885,8 @@ const Bridge = {
     });
     ops.forEach(o=>{
       const t = o.id && S.tasks.find(x=>x.id===o.id && !x.deleted);
-      if (o.op==="move" && t){ const c=cid(o.cat); if(c){ if(!catById(t.catId)) learn(t,c); t.catId=c; } if("due" in o) t.due=okDue(o.due); if("prio" in o) t.prio=okPrio(o.prio); touch(t); n++; }
-      else if (o.op==="add" && o.title){ S.tasks.push({id:uid(),title:String(o.title).slice(0,300),notes:"",catId:cid(o.cat),due:okDue(o.due),prio:okPrio(o.prio),steps:mkSteps(o.steps),done:false,created:now(),updated:now()}); n++; }
+      if (o.op==="move" && t){ const c=cid(o.cat); if(c){ if(!catById(t.catId)) learn(t,c); t.catId=c; } if("due" in o) t.due=okDue(o.due); if("prio" in o) t.prio=okPrio(o.prio); if(okEst(o.est)) t.est=okEst(o.est); if(ENERGY[o.energy]) t.energy=o.energy; touch(t); n++; }
+      else if (o.op==="add" && o.title){ S.tasks.push({id:uid(),title:String(o.title).slice(0,300),notes:"",catId:cid(o.cat),due:okDue(o.due),prio:okPrio(o.prio),est:okEst(o.est),energy:ENERGY[o.energy]?o.energy:null,steps:mkSteps(o.steps),done:false,created:now(),updated:now()}); n++; }
       else if (o.op==="steps" && t && o.steps?.length){ t.steps=[...(t.steps||[]),...mkSteps(o.steps)]; touch(t); n++; }
     });
     commit();
@@ -739,8 +958,112 @@ function aiPaste(){
   $("a-txt").oninput = () => { ops=null; $("a-go").textContent="Prüfen"; $("a-prev").innerHTML=""; };
 }
 
+/* ============ Fokus-Modus mit sichtbarem Timer ============ */
+const LS_FOCUS = "kopfraum_focus_v1";
+const RING_C = 2*Math.PI*90;
+const Focus = {
+  st:null, tick:null, wake:null, done:false,
+  task(){ return this.st && S.tasks.find(x=>x.id===this.st.id && !x.deleted); },
+  pick(){
+    const T = sortTasks(todayList().filter(energyOk));
+    const rest = sortTasks(tasks().filter(t=>live(t) && energyOk(t) && !T.includes(t)));
+    const l = [...T, ...rest].slice(0,7);
+    if (!l.length){ toast("Gerade nichts offen 🌿"); return; }
+    openModal(`<h2>🎯 Woran möchtest du arbeiten?</h2>
+      <p style="margin:0 0 12px;color:var(--muted);font-size:14px">Such dir eine aus – die erste ist mein Vorschlag.</p>
+      <div class="list">${l.map((t,i)=>`<div class="task" data-act="focus-go" data-id="${t.id}"><span style="width:22px;text-align:center">${i===0?"⭐":""}</span><div class="tb"><div class="tt">${esc(t.title)}</div><div class="meta">${catById(t.catId)?`<span class="chip">${esc(catPath(t.catId))}</span>`:""}${dueChip(t)}${t.est?`<span class="chip">⏱ ${fmtMin(t.est)}</span>`:""}${t.energy?`<span class="chip">${ENERGY[t.energy].ic}</span>`:""}</div></div></div>`).join("")}</div>
+      <div class="acts"><span class="sp"></span><button class="btn" data-act="close">Abbrechen</button></div>`);
+  },
+  open(id){
+    const t = S.tasks.find(x=>x.id===id); if(!t) return;
+    const min = t.est && t.est<=90 ? t.est : 25;
+    this.st = {id, mode:"work", dur:min*60, left:min*60, end:null, running:false, notified:false};
+    this.done=false; this.persist(); this.draw();
+  },
+  resume(){
+    const s = lsGet(LS_FOCUS);
+    if (s && S.tasks.find(x=>x.id===s.id && !x.done && !x.deleted)){ this.st=s; this.draw(); if(s.running){ this.loop(); this.lock(); } }
+  },
+  persist(){ if(this.st) lsSet(LS_FOCUS,this.st); },
+  rem(){ const s=this.st; return s.running ? (s.end-now())/1000 : s.left; },
+  start(){ const s=this.st; if(s.left<=0){ s.left=s.dur; s.notified=false; } s.end=now()+s.left*1000; s.running=true; this.persist(); this.loop(); this.lock(); this.drawCtl(); },
+  pause(){ const s=this.st; s.left=Math.max(this.rem(),0); s.running=false; s.end=null; clearInterval(this.tick); this.persist(); this.release(); this.update(); this.drawCtl(); },
+  setDur(min, mode){ const s=this.st; s.mode=mode||s.mode; s.dur=min*60; s.left=s.dur; s.end=null; s.running=false; s.notified=false; clearInterval(this.tick); this.persist(); this.draw(); },
+  add(min){ const s=this.st; if(this.rem()<0){ s.left=min*60; s.dur=min*60; if(s.running) s.end=now()+min*60000; } else { if(s.running) s.end+=min*60000; else s.left+=min*60; s.dur+=min*60; } s.notified=false; this.persist(); this.draw(); if(!s.running) this.start(); },
+  loop(){ clearInterval(this.tick); this.tick=setInterval(()=>this.update(),1000); this.update(); },
+  async lock(){ try{ if(navigator.wakeLock && !this.wake) this.wake = await navigator.wakeLock.request("screen"); }catch(e){} },
+  release(){ try{ this.wake?.release(); }catch(e){} this.wake=null; },
+  close(){ clearInterval(this.tick); this.release(); this.st=null; try{ localStorage.removeItem(LS_FOCUS); }catch(e){} $("focus").classList.remove("on"); $("focus").innerHTML=""; document.title="Kopfraum"; render(); },
+  update(){
+    const s=this.st; if(!s || !$("f-ring")) return;
+    const r=this.rem(), frac=Math.max(0,Math.min(1,r/s.dur));
+    $("f-ring").style.strokeDashoffset = (RING_C*(1-frac)).toFixed(1);
+    $("f-ring").style.opacity = frac>0.002 ? 1 : 0;
+    const over = r<0, a=Math.abs(r);
+    $("f-time").textContent = over ? `+${Math.ceil(a/60)} min` : a>=60 ? `${Math.ceil(a/60)} min` : `${Math.ceil(a)} s`;
+    $("f-tlbl").textContent = over ? "drüber – alles okay" : s.running ? (s.mode==="pause"?"Pause":"noch") : (s.left<s.dur?"pausiert":"bereit");
+    $("focus").classList.toggle("over", over);
+    document.title = s.running ? `${over?"+":""}${$("f-time").textContent} · Kopfraum` : "Kopfraum";
+    if (r<=0 && !s.notified){
+      s.notified=true; this.persist();
+      try{ navigator.vibrate && navigator.vibrate([120,80,120]); }catch(e){}
+      if (CFG.sound) softChime();
+      $("f-end").innerHTML = s.mode==="pause"
+        ? (this.task()?.done ? `<div class="f-msg">Pause vorbei 🌿</div><div class="f-row"><button class="btn pri" data-act="focus">Nächste Aufgabe wählen</button><button class="btn" data-act="f-close">Fokus beenden</button></div>`
+          : `<div class="f-msg">Pause vorbei. Bereit für die nächste Runde?</div><div class="f-row"><button class="btn pri" data-act="f-dur" data-v="25" data-m="work">25 min arbeiten</button><button class="btn" data-act="f-dur" data-v="15" data-m="work">15 min</button></div>`)
+        : `<div class="f-msg">Zeit ist um 🌿 Kurz aufstehen, Wasser trinken?</div><div class="f-row"><button class="btn" data-act="f-add" data-v="5">+5 min weiter</button><button class="btn pri" data-act="f-dur" data-v="5" data-m="pause">5 min Pause</button></div>`;
+    }
+  },
+  drawCtl(){
+    const s=this.st; if(!s || !$("f-ctl")) return;
+    $("f-ctl").innerHTML = s.running
+      ? `<button class="btn" data-act="f-pause">⏸ Pause</button><button class="btn" data-act="f-add" data-v="5">+5 min</button>`
+      : `<button class="btn pri big" data-act="f-start">▶ ${s.left<s.dur&&s.left>0?"Weiter":"Start"}</button>`;
+    $("f-durs").style.visibility = s.running ? "hidden" : "visible";
+  },
+  draw(){
+    const s=this.st, t=this.task(); if(!s||!t){ this.close(); return; }
+    const c = catById(t.catId), st = t.steps||[], cur = st.find(x=>!x.done), doneN = st.filter(x=>x.done).length;
+    const durs = [5,15,25,45]; if (t.est && t.est<=90 && !durs.includes(t.est)) durs.push(t.est); durs.sort((a,b)=>a-b);
+    let body;
+    if (this.done){
+      const next = sortTasks(todayList().filter(x=>energyOk(x) && x.id!==t.id))[0];
+      body = `<div class="f-done"><div style="font-size:54px">🎉</div><h2>Geschafft!</h2><p>„${esc(t.title)}“ ist erledigt. Das zählt.</p>
+        <div class="f-row">${next?`<button class="btn pri" data-act="f-next" data-id="${next.id}">Weiter mit: ${esc(next.title.length>34?next.title.slice(0,32)+"…":next.title)}</button>`:""}<button class="btn" data-act="f-dur" data-v="5" data-m="pause">5 min Pause</button><button class="btn" data-act="f-close">Fokus beenden</button></div></div>`;
+    } else body = `
+      <div class="f-cat">${c?`<span class="dot" style="background:${esc(c.color)}"></span>${esc(catPath(c.id))}`:"📥 Eingang"}${s.mode==="pause"?" · Pause":""}</div>
+      <h1 class="f-title">${esc(t.title)}</h1>
+      <div class="f-timer">
+        <svg viewBox="0 0 200 200" class="f-svg"><circle cx="100" cy="100" r="90" class="f-bg"/><circle id="f-ring" cx="100" cy="100" r="90" class="f-fg ${s.mode==="pause"?"pz":""}" style="stroke-dasharray:${RING_C.toFixed(1)}"/></svg>
+        <div class="f-center"><div id="f-tlbl" class="f-lbl"></div><div id="f-time" class="f-time"></div><div class="f-lbl">von ${fmtMin(Math.round(s.dur/60))}</div></div>
+      </div>
+      <div id="f-durs" class="f-durs">${durs.map(d=>`<button class="sbtn ${d*60===s.dur?"best":""}" data-act="f-dur" data-v="${d}">${d} min</button>`).join("")}</div>
+      <div id="f-ctl" class="f-row"></div>
+      <div id="f-end"></div>
+      <div class="f-step">
+        ${cur?`<div class="f-lbl">Jetzt dran${st.length>1?` · Schritt ${doneN+1} von ${st.length}`:""}</div><div class="f-now">${esc(cur.title)}</div><button class="btn" data-act="f-step" data-id="${cur.id}">✓ Schritt geschafft</button>`
+          : st.length ? `<div class="f-now">Alle ${st.length} Schritte erledigt ✓</div>`
+          : `<div class="f-lbl">Was ist der allererste Mini-Schritt?</div><div class="codebox" style="max-width:420px;margin:6px auto 0"><input id="f-first" placeholder="z. B. Datei öffnen" style="font-family:inherit"><button class="btn" data-act="f-addstep">＋</button></div>`}
+      </div>
+      <div class="f-row f-bottom"><button class="btn pri" data-act="f-taskdone">✓ Aufgabe erledigt</button><button class="btn" data-act="f-later">💤 Später</button><button class="btn" data-act="f-close">Beenden</button></div>`;
+    $("focus").innerHTML = `<button class="f-x" data-act="f-close" aria-label="Schließen">×</button><div class="f-wrap">${body}</div>`;
+    $("focus").classList.add("on");
+    if (!this.done){ this.drawCtl(); this.update(); if (s.notified && this.rem()<=0){ s.notified=false; this.update(); } }
+    const fi=$("f-first"); if(fi) fi.onkeydown=e=>{ if(e.key==="Enter") Focus.addStep(); };
+  },
+  addStep(){ const t=this.task(), v=$("f-first")?.value.trim(); if(!t||!v) return; t.steps=[...(t.steps||[]),{id:uid(),title:v,done:false}]; touch(t); save(); Sync.schedule(); this.draw(); },
+  stepDone(sid){ const t=this.task(); const x=t?.steps?.find(z=>z.id===sid); if(!x) return; x.done=true; x.doneAt=now(); touch(t); save(); Sync.schedule(); toast(CFG.calm?"Schritt erledigt":"Schritt geschafft ✓"); this.draw(); },
+  taskDone(){ const t=this.task(); if(!t) return; t.done=true; t.doneAt=now(); touch(t); save(); Sync.schedule(); this.pause(); this.done=true; this.draw(); },
+};
+function softChime(){
+  try { const ac = new (window.AudioContext||window.webkitAudioContext)(); [523.25,659.25].forEach((f,i)=>{ const o=ac.createOscillator(), g=ac.createGain(); o.type="sine"; o.frequency.value=f; g.gain.setValueAtTime(0,ac.currentTime+i*.25); g.gain.linearRampToValueAtTime(.08,ac.currentTime+i*.25+.05); g.gain.exponentialRampToValueAtTime(.0001,ac.currentTime+i*.25+1.2); o.connect(g).connect(ac.destination); o.start(ac.currentTime+i*.25); o.stop(ac.currentTime+i*.25+1.3); }); } catch(e){}
+}
+document.addEventListener("visibilitychange", ()=>{ if(document.visibilityState==="visible" && Focus.st?.running){ Focus.lock(); Focus.update(); } });
+
+function applyLook(){ const b=document.body; b.classList.toggle("calm", !!CFG.calm); ["fs-s","fs-l","fs-xl"].forEach(c=>b.classList.remove(c)); if(CFG.fontSize && CFG.fontSize!=="m") b.classList.add("fs-"+CFG.fontSize); }
 let toastTimer;
 function toast(text, undo){
+  if (CFG.calm) text = String(text).replace(/[\p{Extended_Pictographic}\u2600-\u27BF]\uFE0F?/gu,"").replace(/\s+/g," ").trim();
   const el=$("toast"); el.innerHTML = esc(text) + (undo?` <button id="undo">Rückgängig</button>`:"");
   el.classList.add("on"); clearTimeout(toastTimer);
   if (undo) $("undo").onclick = () => { undo(); el.classList.remove("on"); };
@@ -754,11 +1077,11 @@ $("capture").addEventListener("submit", e=>{
   const p = parseQuick(raw); if(!p.title) return;
   let catId = p.catId;
   if (!catId && UI.view.startsWith("cat-")) catId = UI.view.slice(4);
-  const t = {id:uid(),title:p.title,notes:"",catId,due:p.due,prio:p.prio,done:false,created:now(),updated:now()};
+  const t = {id:uid(),title:p.title,notes:"",catId,due:p.due,prio:p.prio,est:p.est||null,someday:p.someday||false,done:false,created:now(),updated:now()};
   if (!p.due && UI.view==="today") t.due = dayOff(0);
   S.tasks.push(t); $("qa").value="";
   const c = catById(catId);
-  toast(c ? `→ ${catPath(c.id)}` : "→ Eingang 📥");
+  toast(p.someday ? "💤 → Irgendwann" : c ? `→ ${catPath(c.id)}` : "→ Eingang 📥");
   commit();
   const el = $("t-"+t.id); if(el) el.scrollIntoView({block:"nearest"});
 });
@@ -800,6 +1123,24 @@ document.addEventListener("click", e=>{
     case "login": saveCid(); Sync.login(); break;
     case "logout": Sync.logout(); closeModal(); break;
     case "reauth": Sync.reauth(); break;
+    case "focus": UI.menu=false; renderSide(); Focus.pick(); break;
+    case "focus-go": closeModal(); Focus.open(id); break;
+    case "f-start": Focus.start(); break;
+    case "f-pause": Focus.pause(); break;
+    case "f-add": Focus.add(+el.dataset.v); break;
+    case "f-dur": Focus.done=false; Focus.setDur(+el.dataset.v, el.dataset.m); if(el.dataset.m) Focus.start(); break;
+    case "f-close": Focus.close(); break;
+    case "f-step": Focus.stepDone(id); break;
+    case "f-addstep": Focus.addStep(); break;
+    case "f-taskdone": Focus.taskDone(); break;
+    case "f-next": Focus.open(id); break;
+    case "f-later": { const t=Focus.task(); if(t){ t.snooze=dayOff(1); t.someday=false; touch(t); save(); Sync.schedule(); toast("💤 Taucht morgen wieder auf", undoPark(t)); } Focus.close(); break; }
+    case "efilter": CFG.energy = el.dataset.v; lsSet(LS_CFG,CFG); renderMain(); break;
+    case "replan": replan(); break;
+    case "rp": doReplan(el.dataset.k); break;
+    case "tomorrow": pickTomorrow(); break;
+    case "unpark": { const t=S.tasks.find(x=>x.id===id); if(t){ t.snooze=null; t.someday=false; touch(t); commit(); toast("Ist wieder da ✓"); } break; }
+    case "unwait": { const t=S.tasks.find(x=>x.id===id); if(t){ const w=t.waiting; t.waiting=null; t.waitSince=null; touch(t); commit(); toast("Weiter geht's ✓", ()=>{ t.waiting=w; touch(t); commit(); }); } break; }
     case "ai": UI.menu=false; renderSide(); aiMenu(); break;
     case "ai-sort": copyPrompt(Bridge.sortInbox()); break;
     case "ai-dump": aiDump(); break;
@@ -963,7 +1304,9 @@ document.addEventListener("visibilitychange", ()=>{ if(document.visibilityState=
 setInterval(()=>{ if(document.visibilityState==="visible" && Sync.tokenValid()) Sync.sync(); }, 120000);
 window.addEventListener("online", ()=>Sync.sync());
 
+applyLook();
 render();
+Focus.resume();
 Sync.init();
 </script>
 </body>
